@@ -18,7 +18,7 @@
 
 ## :rocket: Features
 
-This repository contains an easy and clean **Facebook (FB)** Login with **Framework7** and **Cordova**. Requires almost zero configuration, plug and play, with everything you need for classic use cases. 
+This repository contains an easy and clean **Facebook (FB)** Login with **Framework7** and **Cordova**. This repository requires almost zero configuration, it is plug and play and contains everything you need for classic use cases. 
 
 > This repository is not meant to be seen as a standalone library but more as a basic template with all the ready-to-use methods needed for more generic use cases.
 
