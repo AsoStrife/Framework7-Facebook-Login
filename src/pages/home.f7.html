@@ -1,0 +1,40 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar navbar-large">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="title">Framework7 FB Login</div>
+        <div class="title-large">
+          <div class="title-large-text">Framework7 FB Login</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="block block-strong">
+        <button class="col button button-fill button-round fb-login fb">
+          <i class="f7-icons" style="margin-right:15px;">logo_facebook</i> Login with Facebook 
+        </button>
+
+        <div class="row" style="text-align: center; margin-bottom:25px;">
+          <div class="col-100"> <img src="" style="width:200px; border-radius:500px;" class="fb-profile-pic" /> </div>
+          <div class="col-100 fb-name"></div>
+          <div class="col-100 fb-email"></div>
+          <div class="col-100 fb-id"></div>
+        </div>
+
+        <button class="col button button-fill button-round fb-logout fb">
+          <i class="f7-icons" style="margin-right:15px;">logo_facebook</i> Logout
+        </button>
+      </div>
+
+    </div>
+  </div>
+</template>
+<script>
+export default () => {
+  return $render;
+}
+</script>
