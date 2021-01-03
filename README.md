@@ -1,7 +1,8 @@
 # Framework7-Facebook-Login
 <p align="center">
-	<img src="" style="zoom:25%;">
+	<img src="https://raw.githubusercontent.com/AsoStrife/Framework7-Facebook-Login/main/src/static/images/framework7-fb-login.gif" style="zoom:25%;">
 </p>
+
 
 
 
@@ -11,6 +12,7 @@
 - :hammer: [Install & Dependencies](#hammer-install-&-dependencies)
 - :video_game: [Usage](#video_game-usage)
 - :page_facing_up: [API](#page_facing_up-api)
+- :star:[Give a start](#star-give-a-star)
 
 
 
@@ -18,26 +20,26 @@
 
 This repository contains an easy and clean **Facebook (FB)** Login with **Framework7** and **Cordova**. Requires almost zero configuration, plug and play, with everything you need for classic use cases. 
 
-> This repository is not meant to be seen as a standalone library but more as a basic template with all the ready-made methods needed for more generic use cases.
+> This repository is not meant to be seen as a standalone library but more as a basic template with all the ready-to-use methods needed for more generic use cases.
 
 
 
-You can manage
+You can manage:
 
 - Basic user information like: id, name, email, birthdays etc
 - User profile pic (picture)
 - FB Access Token
 - Logout 
+- Extend functionality with Facebook Graph Api
 
 ## :hammer: Install & Dependencies
 
 Here all you need: 
 
 - [Apache Cordova](https://cordova.apache.org/) in order to compile your webapp into a Android - Ios App
-
 - [Framework7](https://framework7.io/) is a **free and open source** framework to develop mobile, desktop or web apps with **native look and feel**.
-
 - [Facebook4 Cordova Plugin](https://github.com/jeduan/cordova-plugin-facebook4) To use official and native FB SDK
+- [A Facebook APP](https://developers.facebook.com/apps/) Required to have the `APP ID` and to be able to use **Facebok APIs** 
 
 
 
@@ -72,7 +74,7 @@ The `src` folder of  this project contain all the magic:
 
 `routes.js` an example of usage the `fb_handler.js`
 
-`fb_handler.js` contains all methods you need in order to use Facebook Login inside your app. 
+`fb_handler.js` contains all methods you need in order to use Facebook Login inside your app.  This is a friendly wrapper of [cordova-plugin-facebook4](https://github.com/jeduan/cordova-plugin-facebook4). If you want to know more check that repository.
 
 ## :video_game:  Usage
 
@@ -80,25 +82,26 @@ The `src` folder of  this project contain all the magic:
 // Import fb_handler
 import fb from './handlers/fb_handler.js'
 
-// Authenticate the user. It will open the Facebook popup asking the user if he wants to authenticate with his account.
+(async () => {
+    // Authenticate the user. It will open the Facebook popup asking the user if he wants to authenticate with his account.
+    let login_response = await fb.login()
+    console.log(login_response)
 
-let login_response = await fb.login()
-console.log(login_response)
+    // Get the status of the authentication. eg. connected, with the 		accessToken
+    let login_status = await fb.get_login_status()
+    console.log(login_status)
 
-// Get the status of the authentication. eg. connected, with the accessToken
-let login_status = await fb.get_login_status()
-console.log(login_status)
+    // Get user basic information. eg.id, name, email
+    let profile_response = await fb.profile()
+    console.log(profile_response)
 
-// Get user basic information. eg.id, name, email
-let profile_response = await fb.profile()
-console.log(profile_response)
-
-// Get user profile picture. 
-let picture = await fb.picture()
-console.log(picture)
+    // Get user profile picture. 
+    let picture = await fb.picture()
+    console.log(picture)
+})();
 ```
 
-To see a more complete example check the `routes.js` file in which there is the implementation visible in the gif at the beginning of the readme.
+To see a more complete example check the `./js/routes.js` file in which there is the implementation visible in the gif at the beginning of the readme.
 
 > jQuery is used only for UI purpose. 
 
@@ -171,3 +174,8 @@ fb.get_local_user = ()
 fb.get_local_user_img = ()
 ```
 
+
+
+# :star: Give a star
+
+If this repository was useful to you, please leave a star for this repository to support my opensource activities!
